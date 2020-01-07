@@ -1,0 +1,63 @@
+#
+# Project:: Ansible Role - ubuntu-base
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# NTP tests
+
+if os[:name] == 'ubuntu'
+
+  # Verify the ntp package is installed
+  describe package('ntp') do
+    it { should be_installed }
+  end
+
+  # Verify the NTP config exists
+  describe file('/etc/ntp.conf') do
+    it { should exist }
+    it { should be_owned_by 'root' }
+    it { should be_grouped_into 'root' }
+    it { should be_mode 0644 }
+  end
+
+  # Set the symlink location based on Ubuntu version
+  if os[:release].start_with?('16')
+    tzsymlink = "Zulu"
+  else
+    tzsymlink = "Zulu"
+  end
+
+  # Verify the localtime is set correctly
+  describe file('/etc/localtime') do
+    it { should be_symlink }
+    it { should be_linked_to "/usr/share/zoneinfo/#{tzsymlink}" } # This is the final link for /usr/share/zoneinfo/Etc/UTC on Ubuntu and inspec goes all the way down when checking symlinks
+  end
+
+  # Verify the timezone file is correct
+  describe file('/etc/timezone') do
+    it { should exist }
+    it { should be_owned_by 'root' }
+    it { should be_grouped_into 'root' }
+    it { should be_mode 0644 }
+    its(:content) { should match /Etc\/UTC/ }
+  end
+
+  # Verify the time zone we want is active
+  describe command('date +%Z') do
+    its('stdout') { should match /UTC/ }
+  end
+
+  # Verify the ntp service is running and enabled
+  describe service('ntp') do
+    it { should be_enabled }
+    it { should be_running }
+  end
+else
+  # Do nothing
+end

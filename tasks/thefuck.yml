@@ -1,0 +1,46 @@
+---
+#
+# Project:: Ansible Role - ubuntu-base
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# Install thefuck, its prerequisites and our custom rules for it
+
+- name: Add the requirements to install things with pip
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - python-dev
+      - python-pip
+
+- name: Install thefuck
+  pip:
+    name: thefuck
+    #version: 3.00
+    state: present
+    executable: pip3
+
+- name: Create root's custom thefuck rules directory
+  file:
+    path: /root/.config/thefuck/rules
+    state: directory
+    owner: root
+    group: root
+    mode: 0750
+    recurse: yes
+
+- name: Checkout my custom rules from git for root
+  git:
+    repo: https://github.com/ahrenstein/thefuck-rules.git
+    dest: /root/.config/thefuck/rules
+    force: yes
+    depth: 1
+    version: master

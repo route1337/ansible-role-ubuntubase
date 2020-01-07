@@ -1,0 +1,40 @@
+---
+#
+# Project:: Ansible Role - ubuntu-base
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  ansible_verbose: true
+  ansible_verbosity: 4
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-16.04
+  - name: ubuntu-18.04
+
+suites:
+  - name: ubuntu-base
+    provisioner:
+      require_ansible_repo: true
+      require_ansible_source: false
+      playbook: tests/playbooks/repo-role.yml
+      hosts: kitchen
+      roles_path: .
+      ansible_inventory: tests/inventory
+#      host_vars_path: tests/host_vars/ubuntu-base
+    verifier:
+      inspec_tests:
+      - tests/smoke/repo-role/default

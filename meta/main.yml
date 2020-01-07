@@ -1,0 +1,28 @@
+---
+#
+# Project:: Ansible Role - ubuntu-base
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+galaxy_info:
+  role_name: "ubuntu_base"
+  author: "Matthew Ahrenstein"
+  description: "Various tweaks and basic prerequisites for Ubuntu systems along with a fancy bash prompt"
+  company: "Route 1337, LLC"
+  license: "license (MIT)"
+  min_ansible_version: "2.4"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+  galaxy_tags:
+    - base
+    - system
+    - server
