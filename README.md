@@ -14,6 +14,7 @@ Changes performed:
     3. landscape-client
     4. landscape-common
     5. update-motd
+    6. cloud-init
 2. Install the following packages
     1. bmon
     2. htop
