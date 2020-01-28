@@ -14,7 +14,7 @@
 if os[:name] == 'ubuntu'
 
   # Verify the packages we don't want are removed
-  %w{landscape-client-ui landscape-client-ui-install landscape-client landscape-common update-motd}.each do |pkg|
+  %w{landscape-client-ui landscape-client-ui-install landscape-client landscape-common update-motd cloud-init}.each do |pkg|
     describe package(pkg) do
       it { should_not be_installed }
     end

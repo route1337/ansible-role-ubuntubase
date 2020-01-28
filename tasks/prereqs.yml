@@ -27,6 +27,7 @@
       - landscape-client
       - landscape-common
       - update-motd
+      - cloud-init
 
 - name: Add the usual packages
   apt:
