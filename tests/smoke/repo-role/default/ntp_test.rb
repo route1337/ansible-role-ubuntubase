@@ -26,17 +26,10 @@ if os[:name] == 'ubuntu'
     it { should be_mode 0644 }
   end
 
-  # Set the symlink location based on Ubuntu version
-  if os[:release].start_with?('16')
-    tzsymlink = "Zulu"
-  else
-    tzsymlink = "Zulu"
-  end
-
   # Verify the localtime is set correctly
   describe file('/etc/localtime') do
     it { should be_symlink }
-    it { should be_linked_to "/usr/share/zoneinfo/#{tzsymlink}" } # This is the final link for /usr/share/zoneinfo/Etc/UTC on Ubuntu and inspec goes all the way down when checking symlinks
+    it { should be_linked_to "/usr/share/zoneinfo/UCT" }
   end
 
   # Verify the timezone file is correct
@@ -45,12 +38,12 @@ if os[:name] == 'ubuntu'
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 0644 }
-    its(:content) { should match /Etc\/UTC/ }
+    its(:content) { should match /UTC/ }
   end
 
   # Verify the time zone we want is active
   describe command('date +%Z') do
-    its('stdout') { should match /UTC/ }
+    its('stdout') { should match /UCT/ }
   end
 
   # Verify the ntp service is running and enabled

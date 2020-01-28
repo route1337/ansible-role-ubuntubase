@@ -17,32 +17,16 @@
     name: ntp
     state: present
 
-- name: (Ubuntu 16.04) Set localtime symlink to UTC
-  set_fact:
-    tzsymlink: "UTC"
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == "16.04"
-
-- name: (Ubuntu 18.04+) Set localtime symlink to UTC
+- name: Set localtime symlink to UCT
   set_fact:
     tzsymlink: "UCT"
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version >= "18.04"
 
 - name: Set the correct time zone for localtime
   file:
     path: /etc/localtime
     state: link
-    src: "/usr/share/zoneinfo/{{ tzsymlink }}"
+    src: "/usr/share/zoneinfo/UCT"
     force: yes
-
-- name: Configure timezone to UTC
-  copy:
-    src: UTCtimezone
-    dest: /etc/timezone
-    owner: root
-    group: root
-    mode: 0644
-  notify:
-    - ubuntu reconfigure timezone
 
 - name: Verify NTP is enabled and running
   service:
