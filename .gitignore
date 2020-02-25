@@ -214,6 +214,7 @@ bin/*
 
 .kitchen/
 .kitchen.local.yml
+inspec.lock
 
 ####################
 ## Ansible detritus
