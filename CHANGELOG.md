@@ -2,8 +2,24 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
-Version 0.1.0
-------------
+Version 1.0.3
+-------------
+
+1. Minor documentation fixes in `CHANGELOG.md`
+
+Version 1.0.2
+-------------
+
+1. Minor documentation fixes
+
+Version 1.0.1
+-------------
+
+1. Remove the `cloud-init` package
+2. Fix some logic regarding NTP configuration
+
+Version 1.0.0
+-------------
 
 1. Initial Release of repository
 
