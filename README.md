@@ -1,6 +1,6 @@
 Ansible Role - ubuntu-base
 ==========================
-This repo contains the Ubuntu Base (ubuntu-base) Ansible role.  
+This repo contains the Ubuntu Base (ubuntu_base) Ansible role.  
 
 What this role does
 -------------------
