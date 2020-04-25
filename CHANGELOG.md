@@ -2,6 +2,11 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
+Version 1.1.0
+-------------
+
+1. Added testing and support for Ubuntu 20.04
+
 Version 1.0.3
 -------------
 
