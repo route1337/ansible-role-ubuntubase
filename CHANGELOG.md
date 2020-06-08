@@ -6,6 +6,9 @@ Version 1.1.0
 -------------
 
 1. Added testing and support for Ubuntu 20.04
+2. Modified NTP configuration to work around Canonical's decision to change symlink paths with each LTS release
+3. Removed Python2 and Python2 packages as it's EOL
+4. Removed some duplicate code
 
 Version 1.0.3
 -------------

@@ -27,9 +27,9 @@ if os[:name] == 'ubuntu'
   end
 
   # Verify the localtime is set correctly
-  describe file('/etc/localtime') do
-    it { should be_symlink }
-    it { should be_linked_to "/usr/share/zoneinfo/UCT" }
+  # This is done via ls since each version of Ubuntu seems changes the final destination of the link
+  describe command('ls -lh /etc/localtime') do
+    its('stdout') { should match /\/usr\/share\/zoneinfo\/UTC/ }
   end
 
   # Verify the timezone file is correct
@@ -43,7 +43,7 @@ if os[:name] == 'ubuntu'
 
   # Verify the time zone we want is active
   describe command('date +%Z') do
-    its('stdout') { should match /UCT/ }
+    its('stdout') { should match /UTC/ }
   end
 
   # Verify the ntp service is running and enabled
