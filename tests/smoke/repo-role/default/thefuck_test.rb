@@ -24,14 +24,6 @@ if os[:name] == 'ubuntu'
     it { should exist }
   end
 
-  describe package('python3-pip') do
-    it { should be_installed }
-  end
-
-  describe package('python3-dev') do
-    it { should be_installed }
-  end
-
   describe file('/usr/local/bin/thefuck') do
     it { should exist }
   end

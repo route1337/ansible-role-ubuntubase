@@ -19,13 +19,13 @@
 
 - name: Set localtime symlink to UCT
   set_fact:
-    tzsymlink: "UCT"
+    tzsymlink: "UTC"
 
 - name: Set the correct time zone for localtime
   file:
     path: /etc/localtime
     state: link
-    src: "/usr/share/zoneinfo/UCT"
+    src: "/usr/share/zoneinfo/UTC"
     force: yes
 
 - name: Verify NTP is enabled and running

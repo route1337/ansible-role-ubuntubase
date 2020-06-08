@@ -43,8 +43,8 @@
       - atop
       - git
       - molly-guard
-      - python-pip
-      - python-dev
+      - python3-pip
+      - python3-dev
       - python3-pip
       - unzip
       - psmisc
@@ -57,14 +57,14 @@
     group: root
     mode: 0755
 
-- name: Install required python packages # Required for grabbing files from sites hosted with SNI
-  pip:
-    name: '{{ packages }}'
-    state: present
-    executable: /usr/bin/pip # Force python2.7
-  vars:
-    packages:
-      - urllib3
-      - pyopenssl
-      - ndg-httpsclient
-      - pyasn1
+#- name: Install required python packages # Required for grabbing files from sites hosted with SNI
+#  pip:
+#    name: '{{ packages }}'
+#    state: present
+#    executable: /usr/bin/pip # Force python2.7
+#  vars:
+#    packages:
+#      - urllib3
+#      - pyopenssl
+#      - ndg-httpsclient
+#      - pyasn1

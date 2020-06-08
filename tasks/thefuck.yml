@@ -12,15 +12,6 @@
 
 # Install thefuck, its prerequisites and our custom rules for it
 
-- name: Add the requirements to install things with pip
-  apt:
-    name: "{{ packages }}"
-    state: present
-  vars:
-    packages:
-      - python-dev
-      - python-pip
-
 - name: Install thefuck
   pip:
     name: thefuck
