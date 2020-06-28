@@ -48,6 +48,7 @@
       - python3-pip
       - unzip
       - psmisc
+      - net-tools
 
 - name: Make sure the /opt directory exists
   file:

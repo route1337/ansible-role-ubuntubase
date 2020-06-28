@@ -2,6 +2,11 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
+Version 1.1.1
+-------------
+
+1. made sure `net-tools` is installed
+
 Version 1.1.0
 -------------
 

@@ -29,6 +29,7 @@ Changes performed:
     11. python3-pip
     12. unzip
     13. psmisc
+    14. net-tools
 3. install the following python2.7 packages
     1. urllib3
     2. pyopenssl
