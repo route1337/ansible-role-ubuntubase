@@ -34,4 +34,4 @@
     dest: /root/.config/thefuck/rules
     force: yes
     depth: 1
-    version: master
+    version: main

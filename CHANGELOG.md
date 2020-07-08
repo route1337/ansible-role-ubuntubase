@@ -2,6 +2,12 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
+Version 1.1.2
+-------------
+
+1. Renamed `master` branch to `main`
+2. Changed the branch thefuck clones from to `main`
+
 Version 1.1.1
 -------------
 
