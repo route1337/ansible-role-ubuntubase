@@ -2,6 +2,12 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
+Version 1.1.4
+-------------
+
+1. Removing redundant and unused code
+2. Properly testing `thefuck` python package is installed.
+
 Version 1.1.3
 -------------
 
