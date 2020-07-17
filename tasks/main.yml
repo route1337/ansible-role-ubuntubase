@@ -14,7 +14,7 @@
 
 - import_tasks: prereqs.yml
   when: ansible_distribution == 'Ubuntu'
-- import_tasks: bash.yml
+- import_tasks: zsh.yml
   when: ansible_distribution == 'Ubuntu'
 - import_tasks: ntp.yml
   when: ansible_distribution == 'Ubuntu'

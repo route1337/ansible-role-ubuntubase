@@ -24,9 +24,10 @@ if os[:name] == 'ubuntu'
     it { should exist }
   end
 
-  describe file('/usr/local/bin/thefuck') do
-    it { should exist }
+  describe pip('thefuck', '/usr/bin/pip3') do
+    it { should be_installed }
   end
+
 elsif os[:name] == 'centos'
 
   describe file('/root/.config/thefuck/rules') do

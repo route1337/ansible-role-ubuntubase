@@ -10,7 +10,8 @@
 # See LICENSE
 #
 
-# Manage packages that should be added or removed
+# Manage prerequisites for configuring a base Ubuntu system
+
 - name: Refresh apt cache
   apt:
     update_cache: yes
@@ -45,10 +46,10 @@
       - molly-guard
       - python3-pip
       - python3-dev
-      - python3-pip
       - unzip
       - psmisc
       - net-tools
+      - zsh
 
 - name: Make sure the /opt directory exists
   file:
@@ -58,14 +59,3 @@
     group: root
     mode: 0755
 
-#- name: Install required python packages # Required for grabbing files from sites hosted with SNI
-#  pip:
-#    name: '{{ packages }}'
-#    state: present
-#    executable: /usr/bin/pip # Force python2.7
-#  vars:
-#    packages:
-#      - urllib3
-#      - pyopenssl
-#      - ndg-httpsclient
-#      - pyasn1

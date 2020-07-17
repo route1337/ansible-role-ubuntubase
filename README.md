@@ -30,15 +30,16 @@ Changes performed:
     12. unzip
     13. psmisc
     14. net-tools
+    15. zsh
 3. install the following python2.7 packages
     1. urllib3
     2. pyopenssl
     3. ndg-httpsclient
     4. pyasn1
-4. Remove root's .bashrc
-5. Deploy a custom system-wide bashrc and a supporting git.bash file for working in git repos
-6. Install and configure ntp to run off the NTP pool using the America/New_York timezone
-7. Install thefuck in python3 and configure it with [Matthew Ahrenstein](https://www.ahrenstein.com)'s [custom rules](https://github.com/ahrenstein/thefuck-rules)
+4. Set root to use zsh
+5. Deploy a custom `zshrc` system-wide
+6. Install and configure ntp to run off the NTP pool using the `UTC` timezone
+7. Install thefuck in python3 and configure it for root with [Matthew Ahrenstein](https://www.ahrenstein.com)'s [custom rules](https://github.com/ahrenstein/thefuck-rules)
 
 Variables
 ---------
