@@ -10,7 +10,8 @@
 # See LICENSE
 #
 
-# Manage packages that should be added or removed
+# Manage prerequisites for configuring a base Ubuntu system
+
 - name: Refresh apt cache
   apt:
     update_cache: yes
@@ -48,6 +49,7 @@
       - unzip
       - psmisc
       - net-tools
+      - zsh
 
 - name: Make sure the /opt directory exists
   file:

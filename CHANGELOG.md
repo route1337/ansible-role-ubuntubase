@@ -7,6 +7,8 @@ Version 1.1.4
 
 1. Removing redundant and unused code
 2. Properly testing `thefuck` python package is installed.
+3. Switching root to zsh
+4. Deploying a custom system-wide zshrc file
 
 Version 1.1.3
 -------------

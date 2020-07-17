@@ -1,0 +1,26 @@
+---
+#
+# Project:: Ansible Role - ubuntu-base
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# Manage the tweaks to zshrc
+
+- name: Deploy the custom zshrc system-wide
+  copy:
+    src: zshrc
+    dest: /etc/zsh/zshrc
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Set root's shell to zsh
+  user:
+    name: root
+    shell: /usr/bin/zsh
