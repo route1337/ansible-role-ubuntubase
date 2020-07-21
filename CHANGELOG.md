@@ -2,6 +2,12 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
+Version 1.1.5
+-------------
+
+1. Adding some common bindkey settings to the zshrc profile
+2. Adding missing `test-kitchen` gem to Gemfile
+
 Version 1.1.4
 -------------
 
