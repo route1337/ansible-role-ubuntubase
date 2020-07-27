@@ -101,6 +101,9 @@ export HISTFILE=~/.zsh_history
 
 # Custom key bindings
 bindkey -e
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
 bindkey '^R' history-incremental-search-backward
 
 # Set vim as the default editor
