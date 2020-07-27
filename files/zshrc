@@ -100,6 +100,7 @@ export SAVEHIST=5000
 export HISTFILE=~/.zsh_history
 
 # Custom key bindings
+bindkey -e
 bindkey '^R' history-incremental-search-backward
 
 # Set vim as the default editor
