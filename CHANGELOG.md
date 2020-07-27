@@ -2,6 +2,11 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
+Version 1.1.6
+-------------
+
+1. Adding a bindkey setting to make zsh behave a bit better when SSHing in from a Mac
+
 Version 1.1.5
 -------------
 
