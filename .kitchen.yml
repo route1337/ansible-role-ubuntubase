@@ -18,7 +18,7 @@ provisioner:
   ansible_verbose: true
   ansible_verbosity: 4
   # TODO remove the next two lines once Ansible supports Focal64
-  custom_pre_install_command: sudo -H apt-get upgrade && sudo -H apt-get install -y python3-pip
+  custom_pre_install_command: sudo -H apt-get update && sudo -H apt-get install -y python3-pip
   require_ansible_omnibus: true
 
 verifier:
@@ -30,7 +30,7 @@ platforms:
   - name: ubuntu-20.04
 
 suites:
-  - name: ubuntu-base
+  - name: standard
     provisioner:
       require_ansible_repo: true
       require_ansible_source: false
@@ -41,4 +41,16 @@ suites:
 #      host_vars_path: tests/host_vars/ubuntu-base
     verifier:
       inspec_tests:
-      - tests/smoke/repo-role/default
+      - tests/smoke/repo-role/standard
+  - name: systemd
+    provisioner:
+      require_ansible_repo: true
+      require_ansible_source: false
+      playbook: tests/playbooks/repo-role.yml
+      hosts: kitchen
+      roles_path: .
+      ansible_inventory: tests/inventory
+      host_vars_path: tests/host_vars/systemd
+    verifier:
+      inspec_tests:
+        - tests/smoke/repo-role/systemd
