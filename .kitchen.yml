@@ -23,7 +23,7 @@ provisioner:
 
 verifier:
   name: inspec
-
+  format: information
 platforms:
   - name: ubuntu-16.04
   - name: ubuntu-18.04
@@ -38,7 +38,6 @@ suites:
       hosts: kitchen
       roles_path: .
       ansible_inventory: tests/inventory
-#      host_vars_path: tests/host_vars/ubuntu-base
     verifier:
       inspec_tests:
       - tests/smoke/repo-role/standard

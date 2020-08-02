@@ -32,7 +32,7 @@ if os[:name] == 'ubuntu'
   end
 
   # Verify DNS still works
-  describe command('nslookup ') do
+  describe command('nslookup google.com') do
     its('stdout') { should match /8\.8\.8\.8/ }
     its('stdout') { should match /Non-authoritative answer/ }
   end
