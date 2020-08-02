@@ -104,6 +104,9 @@ bindkey -e
 bindkey  "^[[3~"  delete-char
 bindkey '^R' history-incremental-search-backward
 
+# Fix scp wildcards
+alias scp='noglob scp'
+
 # Set vim as the default editor
 export EDITOR=vim
 

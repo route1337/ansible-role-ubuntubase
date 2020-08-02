@@ -2,6 +2,13 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo and the role it contains
 
+Version 1.2.0
+-------------
+
+1. Fixed a Kitchen test issue regarding packages
+2. Updated zshrc to make the `scp` command behave like it does in bash regarding wildcards
+3. Added support for optionally specifying DNS servers and as search domain to override dumb SystemD defaults
+
 Version 1.1.7
 -------------
 

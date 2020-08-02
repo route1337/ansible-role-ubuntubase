@@ -1,0 +1,38 @@
+---
+#
+# Project:: Ansible Role - ubuntu-base
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# Manage SystemD's nonsense and bad design
+
+- name: Stop SystemD's resolved listening from listening on port 53
+  lineinfile:
+    path: '/etc/systemd/resolved.conf'
+    line: 'DNSStubListener=no'
+    state: present
+    regexp: '^DNSStubListener='
+  when: ubuntu_base.dns_servers is defined
+
+- name: Disable SystemD's resolved process for good measure
+  service:
+    name: systemd-resolved
+    state: stopped
+    enabled: no
+  when: ubuntu_base.dns_servers is defined
+
+- name: Configure resolv.conf with real DNS servers
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: 0644
+    follow: no
+  when: ubuntu_base.dns_servers is defined

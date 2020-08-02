@@ -1,0 +1,4 @@
+{% for item in ubuntu_base.dns_servers %}
+nameserver {{ item }}
+{% endfor %}
+search {{ ubuntu_base.search_domain }}

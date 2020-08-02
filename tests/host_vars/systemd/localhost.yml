@@ -1,0 +1,19 @@
+---
+#
+# Project:: Ansible Role - ubuntu-base
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# Testing using fixes for SystemD
+
+ubuntu_base:
+  dns_servers:
+    - 8.8.8.8
+    - 1.1.1.1
+  search_domain: "company.internal"
