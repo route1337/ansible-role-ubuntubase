@@ -23,7 +23,7 @@ provisioner:
 
 verifier:
   name: inspec
-  format: information
+
 platforms:
   - name: ubuntu-16.04
   - name: ubuntu-18.04
