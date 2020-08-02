@@ -23,8 +23,10 @@ if os[:name] == 'ubuntu'
     # Verify the resolv.conf file wasn't manipulated
     describe file('/etc/resolv.conf') do
       it {should be_symlink}
+      its('content') {should_not match /8\.8\.8\.8/ }
+      its('content') {should_not match /1\.1\.1\.1/ }
+      its('content') {should_not match /company\.internal/ }
     end
-
   else
     # Do nothing
   end

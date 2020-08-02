@@ -31,6 +31,11 @@ if os[:name] == 'ubuntu'
     its('content') {should match /company\.internal/ }
   end
 
+  # Verify DNS still works
+  describe command('nslookup ') do
+    its('stdout') { should match /8\.8\.8\.8/ }
+    its('stdout') { should match /Non-authoritative answer/ }
+  end
 else
   # Do nothing
 end
