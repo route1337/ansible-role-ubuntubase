@@ -17,7 +17,7 @@ alias gitreset='git reset --hard HEAD && git clean -fd'
 alias ssh='ssh -A'
 alias root='ssh -A -lroot'
 alias mdate='date +%m%d%G%H%M'
-alias history='history -E'
+alias history='history -E 0'
 
 # Make rm behave normally
 setopt rmstarsilent
