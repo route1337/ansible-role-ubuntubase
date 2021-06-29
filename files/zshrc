@@ -125,3 +125,9 @@ git_prune()
 git remote prune origin
 git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
 }
+
+# Enable fzf
+if [[ -f "/usr/bin/fzf" ]]; then
+	source /usr/share/doc/fzf/examples/key-bindings.zsh
+    source /usr/share/doc/fzf/examples/completion.zsh
+fi

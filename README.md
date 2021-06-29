@@ -31,10 +31,11 @@ Changes performed:
     13. psmisc
     14. net-tools
     15. zsh
+    16. fzf (Ubuntu 20.04+ only) 
 3. Set root to use zsh
 4. Deploy a custom `zshrc` system-wide
 5. Install and configure ntp to run off the NTP pool using the `UTC` timezone
-6. Install thefuck in python3 and configure it for root with [Matthew Ahrenstein](https://www.ahrenstein.com)'s [custom rules](https://github.com/ahrenstein/thefuck-rules)
+6. Install thefuck in python3 and configure it for root with [Matthew Ahrenstein](https://www.ahrenstein.com)'s [custom rules](https://github.com/ahrenstein/thefuck-rules) (Ubuntu 18.04+ only)
 7. (Optional) Specify DNS servers for `/etc/resolv.conf` and disable the SystemD resolver
 
 Variables

@@ -51,6 +51,16 @@
       - net-tools
       - zsh
 
+- name: (Ubuntu 20.04+) Add packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - fzf
+      - ripgrep
+  when: ansible_distribution_version >= "20.04"
+
 - name: Make sure the /opt directory exists
   file:
     path: /opt
