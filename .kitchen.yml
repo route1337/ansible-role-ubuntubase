@@ -18,8 +18,8 @@ provisioner:
   ansible_verbose: true
   ansible_verbosity: 4
   # TODO remove the next two lines once Ansible supports Focal64
-  custom_pre_install_command: sudo -H apt-get update && sudo -H apt-get install -y python3-pip
-  require_ansible_omnibus: true
+  #custom_pre_install_command: sudo -H apt-get update && sudo -H apt-get install -y python3-pip
+  #require_ansible_omnibus: true
 
 verifier:
   name: inspec

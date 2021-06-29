@@ -27,6 +27,14 @@ if os[:name] == 'ubuntu'
     end
   end
 
+  if os[:release] >= "20.04"
+    %w{fzf ripgrep}.each do |pkg|
+      describe package(pkg) do
+        it { should be_installed }
+      end
+    end
+  end
+
 else
   # Do nothing
 end

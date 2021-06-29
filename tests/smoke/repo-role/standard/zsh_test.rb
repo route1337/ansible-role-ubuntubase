@@ -55,6 +55,13 @@ if os[:name] == 'ubuntu'
     its(:content) { should match /HISTFILE=~\/\.zsh_history/ }
   end
 
+  if os[:release] >= "20.04"
+    describe file('/etc/zsh/zshrc') do
+      its(:content) { should match /source \/usr\/share\/doc\/fzf\/examples\/key-bindings.zsh/ }
+      its(:content) { should match /source \/usr\/share\/doc\/fzf\/examples\/completion.zsh/ }
+    end
+  end
+
   describe user('root') do
     its('shell') { should eq '/usr/bin/zsh' }
   end

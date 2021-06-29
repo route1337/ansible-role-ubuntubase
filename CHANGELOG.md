@@ -1,6 +1,14 @@
 Ansible Role - ubuntu-base: Changelog
 =====================================
-A list of all the changes made to this repo and the role it contains
+A list of all the changes made to this repo, and the role it contains
+
+Version 1.2.1
+-------------
+
+1. Fixed history command in zsh
+2. Added `fzf` package and `zshrc` config (Ubuntu 20.04+ only)
+3. `thefuck` is now only for Ubuntu 18.04+ due to python package availability changes
+4. Added `ripgrep` (Ubuntu 20.04+ only)
 
 Version 1.2.0
 -------------
