@@ -19,6 +19,6 @@
 - import_tasks: ntp.yml
   when: ansible_distribution == 'Ubuntu'
 - import_tasks: thefuck.yml
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version >= "18.04"
+  when: ansible_distribution == 'Ubuntu'
 - import_tasks: systemd.yml
   when: ansible_distribution == 'Ubuntu'

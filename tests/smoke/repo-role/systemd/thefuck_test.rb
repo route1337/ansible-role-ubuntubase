@@ -12,7 +12,6 @@
 # thefuck tests
 
 if os[:name] == 'ubuntu'
-    if os[:release] >= "18.04"
     describe file('/root/.config/thefuck/rules') do
       it { should be_directory }
       it { should be_owned_by 'root' }
@@ -56,7 +55,4 @@ if os[:name] == 'ubuntu'
     describe file('/usr/bin/thefuck') do
       it { should exist }
     end
-  else
-    # Do nothing
-  end
 end

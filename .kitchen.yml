@@ -17,17 +17,14 @@ provisioner:
   name: ansible_playbook
   ansible_verbose: true
   ansible_verbosity: 4
-  # TODO remove the next two lines once Ansible supports Focal64
-  #custom_pre_install_command: sudo -H apt-get update && sudo -H apt-get install -y python3-pip
-  #require_ansible_omnibus: true
 
 verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
   - name: ubuntu-18.04
   - name: ubuntu-20.04
+  - name: Svpernova09/demo-bento-22.04
 
 suites:
   - name: standard
