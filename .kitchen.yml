@@ -36,7 +36,7 @@ platforms:
   - name: ubuntu-20.04
   - name: ubuntu-22.04
     driver:
-      image_id: ami-0515e1913cfc2801d # A private custom AMI that enables ssh-rsa keys for in sshd for Vagrant.
+      image_id: ami-0515e1913cfc2801d # A private custom AMI that enables ssh-rsa keys for sshd in Vagrant.
 
 suites:
   - name: standard
