@@ -2,7 +2,7 @@
 #
 # Project:: Ansible Role - ubuntu-base
 #
-# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+# Copyright 2020, Route 1337 LLC, All Rights Reserved.
 #
 # Maintainers:
 # - Matthew Ahrenstein: matthew@route1337.com
@@ -11,7 +11,12 @@
 #
 
 driver:
-  name: vagrant
+  name: ec2
+  some_config: true
+  region: us-east-1
+  instance_type: m3.medium
+  associate_public_ip: true
+  interface: dns
 
 provisioner:
   name: ansible_playbook
@@ -21,10 +26,17 @@ provisioner:
 verifier:
   name: inspec
 
+transport:
+  connection_timeout: 10
+  connection_retries: 5
+  username: ubuntu
+
 platforms:
   - name: ubuntu-18.04
   - name: ubuntu-20.04
-  - name: Svpernova09/demo-bento-22.04
+  - name: ubuntu-22.04
+    driver:
+      image_id: ami-0515e1913cfc2801d # A private custom AMI that enables ssh-rsa keys for in sshd for Vagrant.
 
 suites:
   - name: standard

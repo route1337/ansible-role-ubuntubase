@@ -7,6 +7,7 @@ Version 1.3.0
 
 1. Added Ubuntu 22.04 support
 2. Removed Ubuntu 16.04 support
+3. Kitchen will now use AWS for testing (A change forced by VirtualBox not supporting Apple Silicon)
 
 Version 1.2.1
 -------------
