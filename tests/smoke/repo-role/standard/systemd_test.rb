@@ -1,7 +1,7 @@
 #
 # Project:: Ansible Role - ubuntu-base
 #
-# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+# Copyright 2020, Route 1337 LLC, All Rights Reserved.
 #
 # Maintainers:
 # - Matthew Ahrenstein: matthew@route1337.com
@@ -12,7 +12,6 @@
 # SystemD tests
 
 if os[:name] == 'ubuntu'
-  if os[:release] >= '18.04'
 
     # Verify the SystemD default resolver is running
     describe service('systemd-resolved') do
@@ -27,9 +26,6 @@ if os[:name] == 'ubuntu'
       its('content') {should_not match /1\.1\.1\.1/ }
       its('content') {should_not match /company\.internal/ }
     end
-  else
-    # Do nothing
-  end
 else
   # Do nothing
 end

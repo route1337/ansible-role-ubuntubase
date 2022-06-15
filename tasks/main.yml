@@ -2,7 +2,7 @@
 #
 # Project:: Ansible Role - ubuntu-base
 #
-# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+# Copyright 2020, Route 1337 LLC, All Rights Reserved.
 #
 # Maintainers:
 # - Matthew Ahrenstein: matthew@route1337.com
@@ -19,6 +19,6 @@
 - import_tasks: ntp.yml
   when: ansible_distribution == 'Ubuntu'
 - import_tasks: thefuck.yml
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version >= "18.04"
+  when: ansible_distribution == 'Ubuntu'
 - import_tasks: systemd.yml
   when: ansible_distribution == 'Ubuntu'
