@@ -16,7 +16,7 @@ are largely the same for Linux.
 
 1. Install the Ruby virtual environment tools via `brew install rbenv ruby-build`
 2. Install the Ansible linting tool via `brew install ansible-lint`
-3. Configure a Ruby 2.7.0 virtual environment via `rbenv install 3.1.2`
+3. Configure a Ruby 3.1.2 virtual environment via `rbenv install 3.1.2`
 4. Set it to be the default via `rbenv global 3.1.2`
 5. Add the following to your `~/.profile`
     ```
