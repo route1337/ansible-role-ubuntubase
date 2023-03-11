@@ -21,7 +21,7 @@ if os[:name] == 'ubuntu'
   end
 
   # Verify the packages we want are installed
-  %w{bmon htop vim curl gnupg2 atop git molly-guard python3-pip python3-dev unzip psmisc net-tools zsh}.each do |pkg|
+  %w{bmon htop vim curl gnupg2 atop git molly-guard python3-pip python3-dev unzip psmisc net-tools zsh locate}.each do |pkg|
     describe package(pkg) do
       it { should be_installed }
     end

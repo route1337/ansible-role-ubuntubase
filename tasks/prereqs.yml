@@ -50,6 +50,7 @@
       - psmisc
       - net-tools
       - zsh
+      - locate
 
 - name: (Ubuntu 20.04+) Add packages
   apt:
