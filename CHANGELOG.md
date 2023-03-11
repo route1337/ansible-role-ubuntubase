@@ -2,6 +2,12 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo, and the role it contains
 
+Version 1.3.1
+-------------
+
+1. Add the `locate` command
+   1. We don't run `updatedb` because it can take too long
+
 Version 1.3.0
 -------------
 

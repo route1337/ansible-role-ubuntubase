@@ -32,6 +32,7 @@ Changes performed:
     14. net-tools
     15. zsh
     16. fzf (Ubuntu 20.04+ only) 
+    17. locate
 3. Set root to use zsh
 4. Deploy a custom `zshrc` system-wide
 5. Install and configure ntp to run off the NTP pool using the `UTC` timezone
