@@ -29,7 +29,7 @@ if os[:name] == 'ubuntu'
   # Verify the localtime is set correctly
   # This is done via ls since each version of Ubuntu seems changes the final destination of the link
   describe command('ls -lh /etc/localtime') do
-    its('stdout') { should match /\/usr\/share\/zoneinfo\/UTC/ }
+    its('stdout') { should match /\/usr\/share\/zoneinfo\/America\/New_York/ }
   end
 
   # Verify the timezone file is correct
@@ -38,12 +38,12 @@ if os[:name] == 'ubuntu'
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 0644 }
-    its(:content) { should match /UTC/ }
+    its(:content) { should match /EST/ }
   end
 
   # Verify the time zone we want is active
   describe command('date +%Z') do
-    its('stdout') { should match /UTC/ }
+    its('stdout') { should match /EST/ }
   end
 
   # Verify the ntp service is running and enabled

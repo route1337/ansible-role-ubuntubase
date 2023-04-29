@@ -45,6 +45,8 @@ The following variables are optional:
 
 1. `ubuntu_base.dns_servers` - A list of DNS servers to force Ubuntu to use instead of using the SystemD resolver. (Leave this undefined to keep the OS defaults)
 2. `ubuntu_base.search_domain` - The search domain to use in resolv.conf. (**This variable is required if `ubuntu_base.dns_servers` is specified!**)
+3. `ubuntu_base.tzsymlink` - The local TZ symlink. (**Make sure both TZ variables match the same timezone**)
+4. `ubuntu_base.localtime` - The localtime synlink path (**Make sure both TZ variables match the same timezone**)
 
 Testing
 -------
