@@ -19,13 +19,13 @@
 
 - name: Set localtime symlink to UCT
   set_fact:
-    tzsymlink: "UTC"
+    tzsymlink: "{{ ubuntu_base.tzsymlink }}"
 
 - name: Set the correct time zone for localtime
   file:
     path: /etc/localtime
     state: link
-    src: "/usr/share/zoneinfo/UTC"
+    src: "{{ ubuntu_base.localtime }}"
     force: yes
 
 - name: Verify NTP is enabled and running

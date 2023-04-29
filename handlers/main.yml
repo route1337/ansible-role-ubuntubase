@@ -12,6 +12,6 @@
 
 # Handlers used for various tasks in ubuntu-base
 
-# Handlers for prereqs
+# Handlers
 - name: ubuntu reconfigure timezone
   command: dpkg-reconfigure --frontend noninteractive tzdata

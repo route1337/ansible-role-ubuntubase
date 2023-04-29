@@ -10,12 +10,8 @@
 # See LICENSE
 #
 
-# Testing using fixes for SystemD
+# Default settings for the role's variables
 
 ubuntu_base:
-  dns_servers:
-    - 8.8.8.8
-    - 1.1.1.1
-  search_domain: "company.internal"
-  tzsymlink: "EST"
-  localtime: "/usr/share/zoneinfo/America/New_York"
+  tzsymlink: "UTC"
+  localtime: "/usr/share/zoneinfo/UTC"
