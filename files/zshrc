@@ -113,11 +113,13 @@ export EDITOR=vim
 # New sessions start in ~/
 cd ~/
 
-# Make sure Vagrant uses virtualbox by default
-export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 # Enable thefuck
-eval "$(thefuck --alias)"
+#TODO remove this if statement when the package works on 24.04+
+version=$(lsb_release -rs | grep -v "No")
+if (( $(echo "$version < 24.04" | bc -l) )); then
+    eval "$(thefuck --alias)"
+fi
 
 # Help keep repos clean by deleting branches that no longer exist upstream
 git_prune()

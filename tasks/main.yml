@@ -19,6 +19,6 @@
 - import_tasks: ntp.yml
   when: ansible_distribution == 'Ubuntu'
 - import_tasks: thefuck.yml
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version < "24.04" #TODO fix this when the package is fixed
 - import_tasks: systemd.yml
   when: ansible_distribution == 'Ubuntu'
