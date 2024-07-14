@@ -52,7 +52,7 @@
       - zsh
       - locate
 
-- name: (Ubuntu 20.04+) Add packages
+- name: Add packages
   apt:
     name: "{{ packages }}"
     state: present
@@ -60,7 +60,6 @@
     packages:
       - fzf
       - ripgrep
-  when: ansible_distribution_version >= "20.04"
 
 - name: Make sure the /opt directory exists
   file:

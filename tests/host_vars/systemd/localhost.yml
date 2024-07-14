@@ -17,5 +17,4 @@ ubuntu_base:
     - 8.8.8.8
     - 1.1.1.1
   search_domain: "company.internal"
-  tzsymlink: "EST"
   localtime: "/usr/share/zoneinfo/America/New_York"
