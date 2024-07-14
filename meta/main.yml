@@ -16,13 +16,13 @@ galaxy_info:
   description: "Various tweaks and basic prerequisites for Ubuntu systems along with a fancy bash prompt"
   company: "Route 1337 LLC"
   license: "license (MIT)"
-  min_ansible_version: "2.4"
+  min_ansible_version: "2.8"
   platforms:
     - name: Ubuntu
       versions:
-        - bionic
         - focal
         - jammy
+        - noble
   galaxy_tags:
     - base
     - system
