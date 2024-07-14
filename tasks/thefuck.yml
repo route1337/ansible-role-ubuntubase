@@ -12,11 +12,18 @@
 
 # Install thefuck, its prerequisites and our custom rules for it
 
-- name: Install thefuck
+- name: Install thefuck via pip
   pip:
     name: thefuck
     state: present
     executable: pip3
+  when: ansible_distribution_version < "24.04"
+
+- name: Install thefuck
+  apt:
+    name: thefuck
+    state: present
+  when: ansible_distribution_version >= "24.04"
 
 - name: Create root's custom thefuck rules directory
   file:

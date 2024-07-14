@@ -29,6 +29,7 @@
       - landscape-common
       - update-motd
       - cloud-init
+      - systemd-timesyncd
 
 - name: Add the usual packages
   apt:
