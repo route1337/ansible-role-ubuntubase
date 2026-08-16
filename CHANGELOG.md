@@ -2,6 +2,17 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo, and the role it contains
 
+Version 1.5.0
+-------------
+
+1. Test Kitchen removed
+2. `bc` package added
+3. `python3-zombie-imp` for thefuck
+4. thefuck fixed
+5. Added Ubuntu 26.04 support
+6. Removed support for anything below 24.04
+7. Role now assumes Ubuntu only without running checks
+
 Version 1.4.0
 -------------
 

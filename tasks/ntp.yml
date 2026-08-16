@@ -16,7 +16,6 @@
   apt:
     name: ntp
     state: present
-  when: ansible_distribution_version < "24.04"
 
 - name: Set localtime symlink to correct TZ
   set_fact:
@@ -34,4 +33,3 @@
     name: ntp
     state: started
     enabled: yes
-  when: ansible_distribution_version < "24.04"

@@ -17,13 +17,7 @@
     name: thefuck
     state: present
     executable: pip3
-  when: ansible_distribution_version < "24.04"
-
-- name: Install thefuck
-  apt:
-    name: thefuck
-    state: present
-  when: ansible_distribution_version >= "24.04"
+    extra_args: --user --break-system-packages
 
 - name: Create root's custom thefuck rules directory
   file:

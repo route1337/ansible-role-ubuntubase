@@ -12,6 +12,7 @@
 
 galaxy_info:
   role_name: "ubuntu_base"
+  namespace: route1337
   author: "Matthew Ahrenstein"
   description: "Various tweaks and basic prerequisites for Ubuntu systems along with a fancy bash prompt"
   company: "Route 1337 LLC"
@@ -20,9 +21,8 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - focal
-        - jammy
         - noble
+        - resolute
   galaxy_tags:
     - base
     - system
