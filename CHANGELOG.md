@@ -16,6 +16,9 @@ Version 1.5.0
    1. `systemd-timesyncd` is now killed and removed
    2. Legacy `ntp`, `ntpsec` and `ntpdate` packages get removed
 8. `thefuck` is now installed system-wide instead of into root's user site
+9. The thefuck rules directory is no longer set recursively
+   1. It set the execute bit on every checked out file, which git reverted on the next run,
+   so the two tasks reported changed against each other forever
 
 Version 1.4.0
 -------------

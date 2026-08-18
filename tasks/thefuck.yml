@@ -36,7 +36,6 @@
     owner: root
     group: root
     mode: "0750"
-    recurse: true
 
 - name: Checkout my custom rules from git for root
   ansible.builtin.git:
