@@ -37,12 +37,16 @@
     follow: false
   when: ubuntu_base.dns_servers is defined
 
+# SystemD lists units it cannot load when something still references them, so the
+# unit being present in the facts is not proof that it exists.
 - name: Stop SystemD's ntp alternative
   ansible.builtin.systemd_service:
     name: systemd-timesyncd
     state: stopped
     enabled: false
-  when: "'systemd-timesyncd.service' in ansible_facts.services"
+  when:
+    - "'systemd-timesyncd.service' in ansible_facts.services"
+    - ansible_facts.services['systemd-timesyncd.service'].status | default('not-found') != 'not-found'
 
 - name: Purge timesyncd for good measure
   ansible.builtin.apt:
