@@ -12,26 +12,36 @@
 
 # Install thefuck, its prerequisites and our custom rules for it
 
+- name: Check for a local user install of thefuck
+  ansible.builtin.stat:
+    path: /root/.local/bin/thefuck
+  register: thefuck_user_install
+
+- name: Remove local user install of thefuck
+  ansible.builtin.command: pip3 uninstall -y --break-system-packages thefuck
+  when: thefuck_user_install.stat.exists
+  changed_when: true
+
 - name: Install thefuck via pip
-  pip:
+  ansible.builtin.pip:
     name: thefuck
     state: present
     executable: pip3
-    extra_args: --user --break-system-packages
+    extra_args: --break-system-packages
 
 - name: Create root's custom thefuck rules directory
-  file:
+  ansible.builtin.file:
     path: /root/.config/thefuck/rules
     state: directory
     owner: root
     group: root
-    mode: 0750
-    recurse: yes
+    mode: "0750"
+    recurse: true
 
 - name: Checkout my custom rules from git for root
-  git:
+  ansible.builtin.git:
     repo: https://github.com/ahrenstein/thefuck-rules.git
     dest: /root/.config/thefuck/rules
-    force: yes
+    force: true
     depth: 1
     version: main

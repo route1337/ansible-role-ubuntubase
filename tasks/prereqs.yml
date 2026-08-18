@@ -12,15 +12,18 @@
 
 # Manage prerequisites for configuring a base Ubuntu system
 
+- name: Gather service facts
+  ansible.builtin.service_facts:
+
 - name: Refresh apt cache
-  apt:
-    update_cache: yes
+  ansible.builtin.apt:
+    update_cache: true
 
 - name: Remove unused packages
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: absent
-    purge: yes
+    purge: true
   vars:
     packages:
       - landscape-client-ui
@@ -31,7 +34,7 @@
       - cloud-init
 
 - name: Add the usual packages
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: present
   vars:
@@ -55,7 +58,7 @@
       - locate
 
 - name: Add packages
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: present
   vars:
@@ -64,9 +67,9 @@
       - ripgrep
 
 - name: Make sure the /opt directory exists
-  file:
+  ansible.builtin.file:
     path: /opt
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"

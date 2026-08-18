@@ -12,8 +12,17 @@
 
 # Set up the basic requirements and settings of all Ubuntu servers
 
-- import_tasks: prereqs.yml
-- import_tasks: zsh.yml
-- import_tasks: ntp.yml
-- import_tasks: thefuck.yml
-- import_tasks: systemd.yml
+- name: Prep prereqs
+  ansible.builtin.import_tasks: prereqs.yml
+
+- name: Make SystemD more tolerable
+  ansible.builtin.import_tasks: systemd.yml
+
+- name: Configure zsh
+  ansible.builtin.import_tasks: zsh.yml
+
+- name: Install and configure NTP
+  ansible.builtin.import_tasks: ntp.yml
+
+- name: Install and configure thefuck
+  ansible.builtin.import_tasks: thefuck.yml
