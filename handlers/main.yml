@@ -13,5 +13,6 @@
 # Handlers used for various tasks in ubuntu-base
 
 # Handlers
-- name: ubuntu reconfigure timezone
-  command: dpkg-reconfigure --frontend noninteractive tzdata
+- name: Ubuntu reconfigure timezone
+  ansible.builtin.command: dpkg-reconfigure --frontend noninteractive tzdata
+  changed_when: true

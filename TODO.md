@@ -1,5 +1,5 @@
 Ansible Role - ubuntu-base: TODO
-=====================================
+================================
 A list of all the tasks to do for this repo
 
-1. Restore `thefuck` for Ubuntu 24.04+ once the maintainer fixes the package.
+1. Remove `python3-zombie-imp` once `thefuck` stops importing the `imp` module.

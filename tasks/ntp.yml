@@ -11,27 +11,40 @@
 #
 
 # Manage NTP configuration
+#
 
-- name: Install NTP
-  apt:
-    name: ntp
+- name: Remove legacy NTP packages
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: absent
+    purge: true
+    autoremove: true
+  vars:
+    packages:
+      - ntp
+      - ntpsec
+      - ntpdate
+
+- name: Install chrony
+  ansible.builtin.apt:
+    name: chrony
     state: present
-  when: ansible_distribution_version < "24.04"
+    update_cache: true
+    cache_valid_time: 3600
 
 - name: Set localtime symlink to correct TZ
-  set_fact:
+  ansible.builtin.set_fact:
     tzsymlink: "{{ ubuntu_base.tzsymlink }}"
 
 - name: Set the correct time zone for localtime
-  file:
+  ansible.builtin.file:
     path: /etc/localtime
     state: link
     src: "{{ ubuntu_base.localtime }}"
-    force: yes
+    force: true
 
-- name: Verify NTP is enabled and running
-  service:
-    name: ntp
+- name: Verify chrony is enabled and running
+  ansible.builtin.service:
+    name: chrony
     state: started
-    enabled: yes
-  when: ansible_distribution_version < "24.04"
+    enabled: true

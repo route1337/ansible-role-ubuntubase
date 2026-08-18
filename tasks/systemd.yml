@@ -13,7 +13,7 @@
 # Manage SystemD's nonsense and bad design
 
 - name: Stop SystemD's resolved listening from listening on port 53
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: '/etc/systemd/resolved.conf'
     line: 'DNSStubListener=no'
     state: present
@@ -21,18 +21,35 @@
   when: ubuntu_base.dns_servers is defined
 
 - name: Disable SystemD's resolved process for good measure
-  service:
+  ansible.builtin.service:
     name: systemd-resolved
     state: stopped
-    enabled: no
+    enabled: false
   when: ubuntu_base.dns_servers is defined
 
 - name: Configure resolv.conf with real DNS servers
-  template:
+  ansible.builtin.template:
     src: resolv.conf.j2
     dest: /etc/resolv.conf
     owner: root
     group: root
-    mode: 0644
-    follow: no
+    mode: "0644"
+    follow: false
   when: ubuntu_base.dns_servers is defined
+
+# SystemD lists units it cannot load when something still references them, so the
+# unit being present in the facts is not proof that it exists.
+- name: Stop SystemD's ntp alternative
+  ansible.builtin.systemd_service:
+    name: systemd-timesyncd
+    state: stopped
+    enabled: false
+  when:
+    - "'systemd-timesyncd.service' in ansible_facts.services"
+    - ansible_facts.services['systemd-timesyncd.service'].status | default('not-found') != 'not-found'
+
+- name: Purge timesyncd for good measure
+  ansible.builtin.apt:
+    name: systemd-timesyncd
+    state: absent
+    purge: true

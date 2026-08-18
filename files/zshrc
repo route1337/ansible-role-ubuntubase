@@ -115,9 +115,7 @@ cd ~/
 
 
 # Enable thefuck
-#TODO remove this if statement when the package works on 24.04+
-version=$(lsb_release -rs | grep -v "No")
-if (( $(echo "$version < 24.04" | bc -l) )); then
+if (( $+commands[thefuck] )); then
     eval "$(thefuck --alias)"
 fi
 

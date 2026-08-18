@@ -2,6 +2,24 @@ Ansible Role - ubuntu-base: Changelog
 =====================================
 A list of all the changes made to this repo, and the role it contains
 
+Version 1.5.0
+-------------
+
+1. Test Kitchen removed
+2. `bc` package added
+3. `thefuck` fixed
+   1. `python3-zombie-imp` added for thefuck
+4. Added Ubuntu 26.04 support
+5. Removed support for anything below 24.04
+6. Role now assumes Ubuntu only without running checks
+7. Replaced `ntp` with `chrony`
+   1. `systemd-timesyncd` is now killed and removed
+   2. Legacy `ntp`, `ntpsec` and `ntpdate` packages get removed
+8. `thefuck` is now installed system-wide instead of into root's user site
+9. The thefuck rules directory is no longer set recursively
+   1. It set the execute bit on every checked out file, which git reverted on the next run,
+   so the two tasks reported changed against each other forever
+
 Version 1.4.0
 -------------
 
